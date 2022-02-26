@@ -11,9 +11,9 @@ var generatePassword = function () {
   var chosenUppercase = chooseUppercase();
   var chosenNumbers = chooseNumbers();
   var chosenSymbols = chooseSymbols();
-  var assembledPassword = randomPassword();
+  var assembledPassword = assemblePassword();
 
-  return randomPassword(chosenLength);
+  return assemblePassword(chosenLength);
 }
 
 
@@ -99,16 +99,19 @@ var chooseSymbols = function () {
 
 
 
-//Function to generate random password (string) from each char set
-function randomPassword(length) {
-  // if (uppercase, numbers, symbols === false) {
-  var characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-  var generatedPassword = '';
+//Function to assemble random password (string) from each char set
+function assemblePassword(length) {
+  var uppercase = chooseUppercase();
+  var numbers = chooseNumbers();
+  var symbols = chooseSymbols();
 
+  if (uppercase, numbers, symbols === false) {
+    var characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    var generatedPassword = '';
+  }
   for (var i = 0; i < length; i++) {
     generatedPassword += characters[Math.floor(Math.random() * characters.length)]
   }
-
   return generatedPassword;
 }
 
@@ -125,7 +128,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 
@@ -354,5 +356,3 @@ generateBtn.addEventListener("click", writePassword);
 //   }).concat().join('').split('').sort(function () {
 //     return 0.5 - Math.random();
 //   }).join('')
-// }
-
