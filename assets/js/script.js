@@ -8,10 +8,6 @@ var generateBtn = document.querySelector("#generate");
 var generatePassword = function () {
 
   var chosenLength = chooseLength();
-  var chosenUppercase = chooseUppercase();
-  var chosenNumbers = chooseNumbers();
-  var chosenSymbols = chooseSymbols();
-  var assembledPassword = assemblePassword();
 
   return assemblePassword(chosenLength);
 }
@@ -41,13 +37,13 @@ var chooseUppercase = function () {
 
   if (uppercase === "NO" || uppercase === "no" || uppercase === "N") {
     alert("You have chosen NOT to include uppercase letters in your password.");
-    uppercase = false;
-    return uppercase;
+    // uppercase = false;
+    return false;
   }
   else if (uppercase === "YES" || uppercase === "yes" || uppercase === "Y") {
     alert("You have chosen to include uppercase letters in your password.");
-    uppercase = true;
-    return uppercase;
+    // uppercase = true;
+    return true;
   }
   else {
     alert("Please choose YES or NO");
@@ -62,13 +58,13 @@ var chooseNumbers = function () {
 
   if (numbers === "NO" || numbers === "no" || numbers === "N") {
     alert("You have chosen NOT to include numbers in your password.");
-    numbers = false;
-    return numbers;
+    // numbers = false;
+    return false;
   }
   else if (numbers === "YES" || numbers === "yes" || numbers === "Y") {
     alert("You have chosen to include numbers in your password.");
-    numbers = true;
-    return numbers;
+    // numbers = true;
+    return true;
   }
   else {
     alert("Please choose YES or NO");
@@ -83,13 +79,13 @@ var chooseSymbols = function () {
 
   if (symbols === "NO" || symbols === "no" || symbols === "N") {
     alert("You have chosen NOT to include symbols in your password.");
-    symbols = false;
-    return symbols;
+    // symbols = false;
+    return false;
   }
   else if (symbols === "YES" || symbols === "yes" || symbols === "Y") {
     alert("You have chosen to include symbols in your password.");
-    symbols = true;
-    return symbols;
+    // symbols = true;
+    return true;
   }
   else {
     alert("Please choose YES or NO");
@@ -105,16 +101,39 @@ function assemblePassword(length) {
   var numbers = chooseNumbers();
   var symbols = chooseSymbols();
 
+  // Generate password from these characters if (lowercase only)
   if (uppercase, numbers, symbols === false) {
-    var characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    var characters1 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     var generatedPassword = '';
+  
+    for (var i = 0; i < length; i++) {
+      generatedPassword += characters1[Math.floor(Math.random() * characters1.length)]
+    }
+    return generatedPassword;
   }
-  for (var i = 0; i < length; i++) {
-    generatedPassword += characters[Math.floor(Math.random() * characters.length)]
+
+  // Generate password from these characters if (lowercase & uppercase)
+  else if (uppercase === true, numbers, symbols === false) {
+    var characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    var generatedPassword = '';
+  
+    for (var i = 0; i < length; i++) {
+      generatedPassword += characters[Math.floor(Math.random() * characters.length)]
+    }
+    return generatedPassword;
   }
-  return generatedPassword;
+
+
+
+
 }
 
+// // If numbers only, generate random password from a set of characters provided here (lowercase & numbers)
+// // If special characters only, generate random password from a set of characters provided here (lowercase & special char)
+// // If uppercase & numbers only, generate random password from a set of characters provided here (lowercase, uppercase & numbers)
+// // If uppercase & special char only, generate random password from a set of characters provided here (lowercase, uppercase & special char)
+// // If numbers & special char only, generate random password from a set of characters provided here (lowercase, numbers & special char)
+// // If all 3, generate random password from a set of characters provided here (lowercase, uppercase, numbers & special char)
 
 
 
