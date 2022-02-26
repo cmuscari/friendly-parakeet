@@ -11,9 +11,7 @@
 // var lowerUpperNumbersSymbols = [abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-+={}[];:~<,>.?/|];
 
 var generateBtn = document.querySelector("#generate");
-var passwordUppercase;
-var passwordNumbers;
-var passwordSymbols;
+
 
 
 
@@ -24,41 +22,47 @@ var generatePassword = function () {
   chooseUppercase();
   chooseNumbers();
   chooseSymbols();
+  randomPassword();
 
-return charOptions[i];
+return randomPassword(length);
 }
+
+
+
+
 
 
 
 
 // Function to determine password LENGTH
 var chooseLength = function () {
-  var passwordLength = prompt("How long would you like your password to be? \nChoose between 8-128 characters.");
+  var length = prompt("How long would you like your password to be? \nChoose between 8-128 characters.");
     
-    if (passwordLength === null || passwordLength === "" || passwordLength < 8 || passwordLength > 128) {
+    if (length === null || length === "" || length < 8 || length > 128) {
       alert("Please choose a number between 8-128");
       chooseLength();
     }
     else {
-      alert("You have chosen to make your password " + passwordLength + " characters long.\n\nNext, you will choose what characters to include in your password (lowercase letters are default).");
-      return passwordLength;
+      alert("You have chosen to make your password " + length + " characters long.\n\nNext, you will choose what characters to include in your password (lowercase letters are default).");
+      return parseInt(length);
     }
 }
 
 
+
 //Function to determine use of UPPERCASE LETTERS
 var chooseUppercase = function () {
-  var passwordUppercase = prompt("Would you like to include UPPERCASE LETTERS in your password? \nPlease enter YES or NO.");
+  var uppercase = prompt("Would you like to include UPPERCASE LETTERS in your password? \nPlease enter YES or NO.");
 
-    if (passwordUppercase === "NO" || passwordUppercase === "no" || passwordUppercase === "N") {
+    if (uppercase === "NO" || uppercase === "no" || uppercase === "N") {
       alert("You have chosen NOT to include uppercase letters in your password.");
-      passwordUppercase = false;
-      return passwordUppercase;
+      uppercase = false;
+      return uppercase;
     }
-    else if (passwordUppercase === "YES" || passwordUppercase === "yes" || passwordUppercase === "Y") {
+    else if (uppercase === "YES" || uppercase === "yes" || uppercase === "Y") {
       alert("You have chosen to include uppercase letters in your password.");
-      passwordUppercase = true;
-      return passwordUppercase;
+      uppercase = true;
+      return uppercase;
     }
     else {
       alert("Please choose YES or NO");
@@ -69,17 +73,17 @@ var chooseUppercase = function () {
 
 //Function to determine use of NUMBERS
 var chooseNumbers = function () {
-  var passwordNumbers = prompt("Would you like to include NUMBERS in your password? \nPlease enter YES or NO.");
+  var numbers = prompt("Would you like to include NUMBERS in your password? \nPlease enter YES or NO.");
 
-    if (passwordNumbers === "NO" || passwordNumbers === "no" || passwordNumbers === "N") {
+    if (numbers === "NO" || numbers === "no" || numbers === "N") {
       alert("You have chosen NOT to include numbers in your password.");
-      passwordNumbers = false;
-      return passwordNumbers;
+      numbers = false;
+      return numbers;
     }
-    else if (passwordNumbers === "YES" || passwordNumbers === "yes" || passwordNumbers === "Y") {
+    else if (numbers === "YES" || numbers === "yes" || numbers === "Y") {
       alert("You have chosen to include numbers in your password.");
-      passwordNumbers = true;
-      return passwordNumbers;
+      numbers = true;
+      return numbers;
     }
     else {
       alert("Please choose YES or NO");
@@ -90,17 +94,17 @@ var chooseNumbers = function () {
 
 //Function to determine use of SYMBOLS
 var chooseSymbols = function () {
-  var passwordSymbols = prompt("Would you like to include SYMBOLS in your password? \nPlease enter YES or NO.");
+  var symbols = prompt("Would you like to include SYMBOLS in your password? \nPlease enter YES or NO.");
 
-    if (passwordSymbols === "NO" || passwordSymbols === "no" || passwordSymbols === "N") {
+    if (symbols === "NO" || symbols === "no" || symbols === "N") {
       alert("You have chosen NOT to include symbols in your password.");
-      passwordSymbols = false;
-      return passwordSymbols;
+      symbols = false;
+      return symbols;
     }
-    else if (passwordSymbols === "YES" || passwordSymbols === "yes" || passwordSymbols === "Y") {
+    else if (symbols === "YES" || symbols === "yes" || symbols === "Y") {
       alert("You have chosen to include symbols in your password.");
-      passwordSymbols = true;
-      return passwordSymbols;
+      symbols = true;
+      return symbols;
     }
     else {
       alert("Please choose YES or NO");
@@ -109,19 +113,44 @@ var chooseSymbols = function () {
 }
 
 
-//Function to determine which dataset to use when selecting password characters
-// var generateChar = function () {
+//Function to generate random password (string) from each char set
+function randomPassword(length) {
+  // if (uppercase, numbers, symbols === false) {
+    var characters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    var generatedPassword = '';
 
-  if (passwordUppercase, passwordNumbers, passwordSymbols === false) {
-    var charOptions = ["a","b","c","d","e"];
-    var getRandomChar = function () {
-      for (var i = 0; i < passwordLength; i++) {
-        console.log(charOptions[i]);
-      }
-    }
-  }
-  // else if ()
-// }
+    for (var i = 0; i < length; i++) {
+        generatedPassword += characters[Math.floor(Math.random() * characters.length)]
+   } 
+ 
+  return generatedPassword;
+}
+
+
+
+
+  // function randomPassword(passwordLength, charSet) {
+  //   charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  //   var randomPassword = '';
+  //   for (var i = 0; i < passwordLength; i++) {
+  //       var randomChar = Math.floor(Math.random() * charSet.length);
+  //       randomPassword += charSet.substring(randomChar,randomChar+1);
+  //   }
+  //   console.log(randomPassword);
+  //   // return randomPassword;
+  // }
+
+
+//   if (passwordUppercase, passwordNumbers, passwordSymbols === false) {
+//     var charOptions = ["a","b","c","d","e"];
+//     var getRandomChar = function () {
+//       for (var i = 0; i < passwordLength; i++) {
+//         console.log(charOptions[i]);
+//       }
+//     }
+//   }
+//   // else if ()
+// // }
 
 
 
@@ -149,6 +178,7 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+// writePassword
 
 
 
@@ -179,6 +209,20 @@ generateBtn.addEventListener("click", writePassword);
 
 
 // SAMPLE IDEAS
+
+
+function randomString(len, charSet) {
+  charSet = charSet || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var randomString = '';
+  for (var i = 0; i < len; i++) {
+      var randomPoz = Math.floor(Math.random() * charSet.length);
+      randomString += charSet.substring(randomPoz,randomPoz+1);
+  }
+  return randomString;
+}
+
+
+
 
 
 //Function used to determine whether the user wants to include numbers in the password
@@ -222,3 +266,4 @@ function randPassword(letters, numbers, either) {
     return 0.5-Math.random();
   }).join('')
 }
+
