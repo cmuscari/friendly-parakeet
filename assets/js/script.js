@@ -4,17 +4,16 @@ var generateBtn = document.querySelector("#generate");
 
 
 
-
 // GENERATE PASSWORD FUNCTION
 var generatePassword = function () {
 
-  chooseLength();
-  chooseUppercase();
-  chooseNumbers();
-  chooseSymbols();
-  randomPassword();
+  var chosenLength = chooseLength();
+  var chosenUppercase = chooseUppercase();
+  var chosenNumbers = chooseNumbers();
+  var chosenSymbols = chooseSymbols();
+  var assembledPassword = randomPassword();
 
-  return randomPassword(length);
+  return randomPassword(chosenLength);
 }
 
 
@@ -22,7 +21,7 @@ var generatePassword = function () {
 
 // Function to determine password LENGTH
 var chooseLength = function () {
-  var length = prompt("How long would you like your password to be? \nChoose between 8-128 characters.");
+  var length = parseInt(prompt("How long would you like your password to be? \nChoose between 8-128 characters."));
 
   if (length === null || length === "" || length < 8 || length > 128) {
     alert("Please choose a number between 8-128");
