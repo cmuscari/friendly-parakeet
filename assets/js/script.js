@@ -38,12 +38,12 @@ var chooseUppercase = function () {
   if (uppercase === "NO" || uppercase === "no" || uppercase === "N") {
     alert("You have chosen NOT to include uppercase letters in your password.");
     // uppercase = false;
-    return false;
+    return "false";
   }
   else if (uppercase === "YES" || uppercase === "yes" || uppercase === "Y") {
     alert("You have chosen to include uppercase letters in your password.");
     // uppercase = true;
-    return true;
+    return "true";
   }
   else {
     alert("Please choose YES or NO");
@@ -59,12 +59,12 @@ var chooseNumbers = function () {
   if (numbers === "NO" || numbers === "no" || numbers === "N") {
     alert("You have chosen NOT to include numbers in your password.");
     // numbers = false;
-    return false;
+    return "false";
   }
   else if (numbers === "YES" || numbers === "yes" || numbers === "Y") {
     alert("You have chosen to include numbers in your password.");
     // numbers = true;
-    return true;
+    return "true";
   }
   else {
     alert("Please choose YES or NO");
@@ -80,12 +80,12 @@ var chooseSymbols = function () {
   if (symbols === "NO" || symbols === "no" || symbols === "N") {
     alert("You have chosen NOT to include symbols in your password.");
     // symbols = false;
-    return false;
+    return "false";
   }
   else if (symbols === "YES" || symbols === "yes" || symbols === "Y") {
     alert("You have chosen to include symbols in your password.");
     // symbols = true;
-    return true;
+    return "true";
   }
   else {
     alert("Please choose YES or NO");
@@ -102,7 +102,7 @@ function assemblePassword(length) {
   var symbols = chooseSymbols();
 
   // Generate password from these characters if (lowercase only)
-  if (uppercase, numbers, symbols === false) {
+  if (uppercase === "false" && numbers === "false" && symbols === "false") {
     var characters1 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     var generatedPassword = '';
   
@@ -113,12 +113,12 @@ function assemblePassword(length) {
   }
 
   // Generate password from these characters if (lowercase & uppercase)
-  else if (uppercase === true, numbers, symbols === false) {
-    var characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  if (uppercase === "true" && numbers === "false" && symbols === "false") {
+    var characters2 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     var generatedPassword = '';
   
     for (var i = 0; i < length; i++) {
-      generatedPassword += characters[Math.floor(Math.random() * characters.length)]
+      generatedPassword += characters2[Math.floor(Math.random() * characters2.length)]
     }
     return generatedPassword;
   }
