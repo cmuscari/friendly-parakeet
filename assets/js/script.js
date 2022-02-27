@@ -105,7 +105,7 @@ function assemblePassword(length) {
   if (uppercase === "false" && numbers === "false" && symbols === "false") {
     var characters1 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     var generatedPassword = '';
-  
+
     for (var i = 0; i < length; i++) {
       generatedPassword += characters1[Math.floor(Math.random() * characters1.length)]
     }
@@ -116,24 +116,83 @@ function assemblePassword(length) {
   if (uppercase === "true" && numbers === "false" && symbols === "false") {
     var characters2 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     var generatedPassword = '';
-  
+
     for (var i = 0; i < length; i++) {
       generatedPassword += characters2[Math.floor(Math.random() * characters2.length)]
     }
     return generatedPassword;
   }
 
+  // Generate password from these characters if (lowercase & numbers)
+  if (uppercase === "false" && numbers === "true" && symbols === "false") {
+    var characters3 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    var generatedPassword = '';
 
+    for (var i = 0; i < length; i++) {
+      generatedPassword += characters3[Math.floor(Math.random() * characters3.length)]
+    }
+    return generatedPassword;
+  }
 
+  // Generate password from these characters if (lowercase & symbols)
+  if (uppercase === "false" && numbers === "false" && symbols === "true") {
+    var characters4 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '{', '}', '[', ']', ';', ':', '~', '<', '>', '?', '/', '|'];
+    var generatedPassword = '';
 
+    for (var i = 0; i < length; i++) {
+      generatedPassword += characters4[Math.floor(Math.random() * characters4.length)]
+    }
+    return generatedPassword;
+  }
+
+  // Generate password from these characters if (lowercase, uppercase & numbers)
+  if (uppercase === "true" && numbers === "true" && symbols === "false") {
+    var characters5 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    var generatedPassword = '';
+
+    for (var i = 0; i < length; i++) {
+      generatedPassword += characters5[Math.floor(Math.random() * characters5.length)]
+    }
+    return generatedPassword;
+  }
+
+  // Generate password from these characters if (lowercase, uppercase & symbols)
+  if (uppercase === "true" && numbers === "false" && symbols === "true") {
+    var characters6 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '{', '}', '[', ']', ';', ':', '~', '<', '>', '?', '/', '|'];
+    var generatedPassword = '';
+
+    for (var i = 0; i < length; i++) {
+      generatedPassword += characters6[Math.floor(Math.random() * characters6.length)]
+    }
+    return generatedPassword;
+  }
+
+  // Generate password from these characters if (lowercase, numbers & symbols)
+  if (uppercase === "false" && numbers === "true" && symbols === "true") {
+    var characters7 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '{', '}', '[', ']', ';', ':', '~', '<', '>', '?', '/', '|'];
+    var generatedPassword = '';
+
+    for (var i = 0; i < length; i++) {
+      generatedPassword += characters7[Math.floor(Math.random() * characters7.length)]
+    }
+    return generatedPassword;
+  }
+
+  // Generate password from these characters if (lowercase, uppercase, numbers & symbols)
+  if (uppercase === "true" && numbers === "true" && symbols === "true") {
+    var characters8 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '{', '}', '[', ']', ';', ':', '~', '<', '>', '?', '/', '|'];
+    var generatedPassword = '';
+
+    for (var i = 0; i < length; i++) {
+      generatedPassword += characters8[Math.floor(Math.random() * characters8.length)]
+    }
+    return generatedPassword;
+  }
 }
 
-// // If numbers only, generate random password from a set of characters provided here (lowercase & numbers)
-// // If special characters only, generate random password from a set of characters provided here (lowercase & special char)
-// // If uppercase & numbers only, generate random password from a set of characters provided here (lowercase, uppercase & numbers)
-// // If uppercase & special char only, generate random password from a set of characters provided here (lowercase, uppercase & special char)
-// // If numbers & special char only, generate random password from a set of characters provided here (lowercase, numbers & special char)
-// // If all 3, generate random password from a set of characters provided here (lowercase, uppercase, numbers & special char)
+
+
+
 
 
 
@@ -154,224 +213,3 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Character Sets
-// var lower = ["a","b","c","d","e"];
-// var lowerUpper = [abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ];
-// var lowerNumbers = [abcdefghijklmnopqrstuvwxyz0123456789];
-// var lowerSymbols = [abcdefghijklmnopqrstuvwxyz!@#$%^&*()_-+={}[];:~<,>.?/|];
-// var lowerUpperNumbers = [abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789];
-// var lowerUpperSymbols = [abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_-+={}[];:~<,>.?/|];
-// var lowerNumbersSymbols = [abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_-+={}[];:~<,>.?/|];
-// var lowerUpperNumbersSymbols = [abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-+={}[];:~<,>.?/|];
-
-
-
-
-
-// // function randomPassword(passwordLength, charSet) {
-// //   charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-// //   var randomPassword = '';
-// //   for (var i = 0; i < passwordLength; i++) {
-// //       var randomChar = Math.floor(Math.random() * charSet.length);
-// //       randomPassword += charSet.substring(randomChar,randomChar+1);
-// //   }
-// //   console.log(randomPassword);
-// //   // return randomPassword;
-// // }
-
-
-// //   if (passwordUppercase, passwordNumbers, passwordSymbols === false) {
-// //     var charOptions = ["a","b","c","d","e"];
-// //     var getRandomChar = function () {
-// //       for (var i = 0; i < passwordLength; i++) {
-// //         console.log(charOptions[i]);
-// //       }
-// //     }
-// //   }
-// //   // else if ()
-// // // }
-
-
-
-
-
-
-
-
-
-// // Start generating password when the button is clicked
-
-// // Ask the user for length of password --> return number value ***
-// // Ask the user if they want to use uppercase letters --> return true or false ***
-// // Ask the user if they want to use numbers --> return true or false ***
-// // Ask the user if they want to use special characters --> return true or false ***
-
-// // If uppercase only, generate random password from a set of characters provided here (lowercase & uppercase)
-// // If numbers only, generate random password from a set of characters provided here (lowercase & numbers)
-// // If special characters only, generate random password from a set of characters provided here (lowercase & special char)
-// // If uppercase & numbers only, generate random password from a set of characters provided here (lowercase, uppercase & numbers)
-// // If uppercase & special char only, generate random password from a set of characters provided here (lowercase, uppercase & special char)
-// // If numbers & special char only, generate random password from a set of characters provided here (lowercase, numbers & special char)
-// // If all 3, generate random password from a set of characters provided here (lowercase, uppercase, numbers & special char)
-
-// // Return that value to the text window
-
-
-
-
-
-
-
-// // SAMPLE IDEAS
-
-
-// function randomString(len, charSet) {
-//   charSet = charSet || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-//   var randomString = '';
-//   for (var i = 0; i < len; i++) {
-//     var randomPoz = Math.floor(Math.random() * charSet.length);
-//     randomString += charSet.substring(randomPoz, randomPoz + 1);
-//   }
-//   return randomString;
-// }
-
-
-
-
-
-// //Function used to determine whether the user wants to include numbers in the password
-// function determineNumbers() {
-//   numberCheck = prompt("Do you want to include numbers in your password? \n(Yes or No)");
-//   numberCheck = numberCheck.toLowerCase();
-
-//   if (numberCheck === null || numberCheck === "") {
-//     alert("Please answer Yes or No");
-//     determineNumbers();
-
-//   } else if (numberCheck === "yes" || numberCheck === "y") {
-//     numberCheck = true;
-//     return numberCheck;
-
-//   } else if (numberCheck === "no" || numberCheck === "n") {
-//     numberCheck = false;
-//     return numberCheck;
-
-//   } else {
-//     alert("Please answer Yes or No");
-//     determineNumbers();
-//   }
-//   return numberCheck;
-// }
-
-// // ***********************************
-
-// function randPassword(letters, numbers, either) {
-//   var chars = [
-//     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", // letters
-//     "0123456789", // numbers
-//     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789" // either
-//   ];
-
-//   return [letters, numbers, either].map(function (len, i) {
-//     return Array(len).fill(chars[i]).map(function (x) {
-//       return x[Math.floor(Math.random() * x.length)];
-//     }).join('');
-//   }).concat().join('').split('').sort(function () {
-//     return 0.5 - Math.random();
-//   }).join('')
